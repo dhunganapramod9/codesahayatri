@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Press Start 2P', system-ui;
+    font-size: 10px;
+  }
+}
+
+.tech-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #001a1a 0%, #003333 100%);
+  z-index: -1;
+  overflow: hidden;
+}
+
+.tech-background::before {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: -50%;
+  left: -50%;
+  background: radial-gradient(circle, transparent 20%, #001a1a 100%),
+              linear-gradient(to bottom right, transparent, rgba(0, 255, 255, 0.1));
+  animation: techBgRotate 60s linear infinite;
+  opacity: 0.5;
+}
+
+.tech-background::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, rgba(0, 255, 255, 0.05) 0px, rgba(0, 255, 255, 0.05) 1px, transparent 1px, transparent 10px),
+    repeating-linear-gradient(-45deg, rgba(0, 255, 255, 0.05) 0px, rgba(0, 255, 255, 0.05) 1px, transparent 1px, transparent 10px);
+  animation: techBgPulse 4s ease-in-out infinite;
+}
+
+.shadow-glow-cyan {
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.shadow-glow-green {
+  box-shadow: 0 0 15px rgba(123, 255, 123, 0.5);
+}
+
+.shadow-glow-magenta {
+  box-shadow: 0 0 15px rgba(255, 123, 255, 0.5);
+}
+
+.text-shadow {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes techBgRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes techBgPulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.tech-lines {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(90deg, rgba(0, 255, 255, 0.1) 1px, transparent 1px),
+                    linear-gradient(rgba(0, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: techLinesPulse 4s ease-in-out infinite;
+}
+
+@keyframes techLinesPulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
