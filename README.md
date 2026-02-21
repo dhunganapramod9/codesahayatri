@@ -20,5 +20,3 @@ npm install
 npm run dev
 ```
 
-## Security Note
-Never commit your `.env` file. It's automatically ignored by Git.
