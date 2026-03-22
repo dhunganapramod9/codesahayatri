@@ -131,21 +131,21 @@ function App() {
           {!graphData && !loading && (
             <div className="flex items-center justify-center flex-1">
               <div className="max-w-4xl mx-auto text-center">
-                <h2 className="text-3xl text-white mb-8">Codebase Navigator for Interns & New Grad Developers</h2>
+                <h2 className="text-3xl text-white mb-8">Repository Understanding for Large Codebases</h2>
                 <div className="relative">
                   <div className="absolute inset-0 border-2 border-teal-500/30 rounded-xl transform rotate-1"></div>
                   <div className="grid grid-cols-3 gap-8 relative bg-black/20 p-8 rounded-xl">
                     <div className="bg-white/5 p-6 rounded-lg border border-teal-500/30">
                       <Brain className="w-16 h-16 text-teal-400 mx-auto mb-3" />
-                      <h3 className="text-white text-lg">Code Structure</h3>
+                      <h3 className="text-white text-lg">Structure Mapping</h3>
                     </div>
                     <div className="bg-white/5 p-6 rounded-lg border border-teal-500/30">
                       <Git className="w-16 h-16 text-pink-400 mx-auto mb-3" />
-                      <h3 className="text-white text-lg">Development Flow</h3>
+                      <h3 className="text-white text-lg">Repository Activity</h3>
                     </div>
                     <div className="bg-white/5 p-6 rounded-lg border border-teal-500/30">
                       <Users className="w-16 h-16 text-purple-400 mx-auto mb-3" />
-                      <h3 className="text-white text-lg">Team Commits</h3>
+                      <h3 className="text-white text-lg">Context for Reasoning</h3>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@ function App() {
                   </div>
                 </div>
 
-                {/* Sahayatri Code Assistant */}
+                {/* Sahayatri Repository Assistant */}
                 <div className="h-1/2">
                   <ChatBox selectedNode={selectedNode} graphData={graphData} />
                 </div>

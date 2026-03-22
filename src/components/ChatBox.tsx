@@ -208,7 +208,7 @@ Siblings: ${relationships.siblings.join(', ')}`;
   return (
     <div className="bg-white/5 backdrop-blur-sm rounded-lg border border-teal-500/30 flex flex-col h-full">
       <div className="p-4 border-b border-teal-500/30">
-        <h2 className="text-lg text-white">Sahayatri</h2>
+        <h2 className="text-lg text-white">Sahayatri Repository Assistant</h2>
       </div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
@@ -241,7 +241,7 @@ Siblings: ${relationships.siblings.join(', ')}`;
               type="text"
               value={input}
               onChange={handleInputChange}
-              placeholder="Ask about the code (use @ to mention files)..."
+              placeholder="Ask about repository structure or architecture (use @ to mention files)..."
               className="w-full bg-white/10 text-white placeholder-white/50 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
             {suggestions.length > 0 && (
