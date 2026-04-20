@@ -8,6 +8,12 @@ The goal is simple: make it easier to go from “this repo looks overwhelming”
 
 ---
 
+## 🌐 Live Demo
+
+👉 https://silly-snickerdoodle-790009.netlify.app/
+
+---
+
 ## Features
 
 - Accepts a public GitHub repository URL as input  
