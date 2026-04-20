@@ -1,77 +1,88 @@
 # CodeSahayatri
 
-CodeSahayatri is a repository-structure visualization and explanation tool designed to help interns and early-career developers understand large codebases faster.
+CodeSahayatri helps developers understand unfamiliar codebases faster.
 
-It lets a user enter a GitHub repository URL, fetches the repository tree and recent commit history from the GitHub API, builds a client-side graph of directories and files, and provides an interactive chat assistant that explains architecture using the repository structure as context.
+A user can paste a GitHub repository URL, and the system fetches the repository structure and recent commit history through the GitHub API. It then builds an interactive visualization of the project layout and provides an assistant that explains how the codebase is organized.
 
-## What this project demonstrates
+The goal is simple: make it easier to go from “this repo looks overwhelming” to “I understand where things live and how the project is structured.”
 
-This project is a useful example of adjacent experience for long-context and complex-reasoning tooling work because it already combines:
+---
 
-- large-repository ingestion from external systems
-- graph-based structural representations of codebases
-- multi-file context assembly
-- commit and contributor metadata analysis
-- LLM-powered repository explanation grounded in code structure
+## Features
 
-While this project is not a benchmark dataset or an AST-based static analysis pipeline, it demonstrates practical work on repository understanding, architecture surfacing, and context construction for code reasoning workflows.
+- Accepts a public GitHub repository URL as input  
+- Fetches repository tree and recent commit history using the GitHub API  
+- Builds an interactive graph of files and directories  
+- Lets users explore repository structure visually  
+- Provides repository-aware explanations through an interactive assistant  
 
-## Current architecture
+---
 
-The current application flow is:
+## Why I built it
 
-1. **Repository URL input**
-   - The user submits a GitHub repository URL through the frontend.
-2. **Repository and commit retrieval**
-   - The app fetches the repository tree and recent commit details from the GitHub API.
-3. **Graph construction**
-   - File and directory paths are converted into nodes and parent-child links.
-4. **Interactive visualization**
-   - The repository structure is rendered as an interactive force-directed graph.
-5. **Context-aware explanation**
-   - The chat assistant builds repository context from the graph and selected node relationships, then asks an LLM to explain the architecture.
+I built CodeSahayatri because understanding a new codebase is one of the hardest parts of joining a project. Even when documentation exists, it often takes time to figure out how directories are organized, where important logic lives, and how different parts of the repository connect.
 
-## Why it is relevant to long-context evaluation work
+I wanted to build a tool that gives developers a faster starting point by combining repository structure, recent activity, and interactive explanations in one place.
 
-If you are positioning this project in a proposal, the most credible framing is:
+---
 
-- it shows experience navigating large repositories programmatically
-- it shows experience turning repository structure into machine-readable context
-- it shows experience building developer-facing interfaces for code understanding
-- it shows experience connecting structural code context to LLM reasoning
+## How it works
 
-That makes it a strong **related-work example** for projects involving:
+1. The user enters a GitHub repository URL  
+2. The backend fetches repository metadata, tree structure, and recent commit history from the GitHub API  
+3. The app transforms that data into a graph-friendly structure  
+4. The frontend renders an interactive visualization of the repository layout  
+5. The assistant uses repository context to explain the project structure and help users navigate the codebase  
 
-- repository curation
-- long-context code understanding
-- benchmark task design around multi-file reasoning
-- analysis of how agents fail when context spans many files and subsystems
+---
 
-## Important limitations
+## Tech Stack
 
-To keep the project description accurate, this repository currently does **not** include:
+- Frontend: React, TypeScript, Vite  
+- Visualization: D3.js  
+- Backend: Node.js / Express  
+- APIs: GitHub REST API  
 
-- Python AST static analysis
-- a Flask backend
-- import or call-graph dependency extraction
-- benchmark dataset generation or evaluation pipeline integration
+---
 
-## Environment Setup
+## What I focused on
 
-1. Copy `.env.example` to `.env`:
+- Designing a workflow that helps users understand real repositories quickly  
+- Turning raw GitHub API data into a structure that is easy to visualize  
+- Making the UI useful rather than just technically correct  
+- Building an assistant that uses actual repository context instead of generic responses  
 
-```bash
-cp .env.example .env
-```
+---
 
-2. Add your API keys to `.env`:
+## Challenges
 
-- `VITE_GITHUB_TOKEN`: Your GitHub personal access token
-- `VITE_OPENAI_API_KEY`: Your OpenAI API key
+- Handling large repositories without making the visualization overwhelming  
+- Deciding how much repository information to show before the graph becomes noisy  
+- Structuring GitHub API calls efficiently  
+- Making the assistant grounded in repository structure rather than vague explanations  
 
-## Development
+---
+
+## What I learned
+
+The biggest lesson from this project was that useful developer tools need more than correct output. Early on, it was possible to fetch data and display a graph, but that alone did not make the project helpful.
+
+I had to think more carefully about what information users actually need when they are trying to understand a new codebase.
+
+I also learned how to break down a system into stages like ingestion, transformation, visualization, and explanation, which helped me think more like a systems engineer.
+
+---
+
+## Running the project locally
+
+### Prerequisites
+
+- Node.js  
+- npm  
+- GitHub API token (if required)  
+
+### Setup and run
 
 ```bash
 npm install
 npm run dev
-```
